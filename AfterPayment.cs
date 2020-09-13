@@ -16,16 +16,34 @@ namespace Payment
 
         public static void Main(string[] args)
         {
-           if(args.Length==0)
+
+            Console.WriteLine("Please enter the payment type: \n 1 for Physical Product \n 2 for Books \n 3 for Membership");
+           
+            int choice = Convert.ToInt32( Console.ReadLine());
+            Console.WriteLine("Your made payment for : " + choice);
+           
+
+            if(choice==1)
             {
-                Console.WriteLine("Please enter the payment type");
-                Console.ReadLine();
+                PhysicalProduct p = new PhysicalProduct();
+                 p.TakeActionAfterPayment();
             }
-           //else
-           // {
-           //     AfterPayment af = new AfterPayment();
-           //     string isActionDone = af.TakeActionAfterPaymentForPhyscialProd(args[0].ToString());
-           // }
+           else if( choice == 2)
+            {
+                Books b = new Books();
+                b.TakeActionAfterPayment();
+            }
+            else if (choice == 3)
+            {
+                Membership m= new Membership();
+                m.TakeActionAfterPayment();
+            }
+
+            //else
+            // {
+            //     AfterPayment af = new AfterPayment();
+            //     string isActionDone = af.TakeActionAfterPaymentForPhyscialProd(args[0].ToString());
+            // }
         }    
 
 
@@ -33,6 +51,8 @@ namespace Payment
         {
            public string  TakeActionAfterPayment()
             {
+                Console.WriteLine("Generated Packaging Slip for Shipping");
+                Console.ReadLine();
                 return "Physical";
             }
         }
@@ -41,6 +61,8 @@ namespace Payment
         {
             public string TakeActionAfterPayment()
             {
+                Console.WriteLine("Generated duplicate Packaging Slip for Royality Department");
+                Console.ReadLine();
                 return "Book";
             }
         }
@@ -50,6 +72,8 @@ namespace Payment
         {
             public string TakeActionAfterPayment()
             {
+                Console.WriteLine("Activated Membership");
+                Console.ReadLine();
                 return "Activate Membership";
             }
         }
