@@ -10,7 +10,7 @@ namespace Payment
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Initial Draft");
+            Console.WriteLine("Check in Test from VS");
             Console.ReadLine();
         }    
     }
