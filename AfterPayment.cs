@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Payment
 {
-   public class AfterPayment
+
+    public interface ITakeAction
+    {
+        string TakeActionAfterPayment();
+    }
+    public class AfterPayment
     {
 
-        interface ITakeAction
-        {
-            string TakeActionAfterPayment();
-        }
 
         public static void Main(string[] args)
         {
@@ -21,29 +22,11 @@ namespace Payment
            
             int choice = Convert.ToInt32( Console.ReadLine());
             Console.WriteLine("Your made payment for : " + choice);
+
+             ActionFactory af = new ActionFactory();
+            ITakeAction selectedAction = af.GetAfterPaymentAction(choice);
+            selectedAction.TakeActionAfterPayment();
            
-
-            if(choice==1)
-            {
-                PhysicalProduct p = new PhysicalProduct();
-                 p.TakeActionAfterPayment();
-            }
-           else if( choice == 2)
-            {
-                Books b = new Books();
-                b.TakeActionAfterPayment();
-            }
-            else if (choice == 3)
-            {
-                Membership m= new Membership();
-                m.TakeActionAfterPayment();
-            }
-
-            //else
-            // {
-            //     AfterPayment af = new AfterPayment();
-            //     string isActionDone = af.TakeActionAfterPaymentForPhyscialProd(args[0].ToString());
-            // }
         }    
 
 
