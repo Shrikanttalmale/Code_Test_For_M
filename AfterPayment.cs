@@ -8,6 +8,12 @@ namespace Payment
 {
    public class AfterPayment
     {
+
+        interface ITakeAction
+        {
+            string TakeActionAfterPayment();
+        }
+
         public static void Main(string[] args)
         {
            if(args.Length==0)
@@ -15,30 +21,40 @@ namespace Payment
                 Console.WriteLine("Please enter the payment type");
                 Console.ReadLine();
             }
-           else
-            {
-                AfterPayment af = new AfterPayment();
-                string isActionDone = af.TakeActionAfterPaymentForPhyscialProd(args[0].ToString());
-            }
+           //else
+           // {
+           //     AfterPayment af = new AfterPayment();
+           //     string isActionDone = af.TakeActionAfterPaymentForPhyscialProd(args[0].ToString());
+           // }
         }    
 
-        public string TakeActionAfterPaymentForPhyscialProd(string paymentType)
+
+        public class PhysicalProduct : ITakeAction
         {
-            ///Code to generate a packaging slip for shippins goes here
-            return "Physical";
+           public string  TakeActionAfterPayment()
+            {
+                return "Physical";
+            }
         }
 
-        public string TakeActionAfterPaymentForBood(string paymentType)
+        public class Books : ITakeAction
         {
-            ///Create duplicate packing slip for royality department
-            return "Book";
+            public string TakeActionAfterPayment()
+            {
+                return "Book";
+            }
         }
 
-        public string TakeActionAfterPaymentForMembership(string paymentType)
+
+        public class Membership : ITakeAction
         {
-            ///Activate membership code goes here
-            return "Member";
+            public string TakeActionAfterPayment()
+            {
+                return "Activate Membership";
+            }
         }
+
+
 
 
 
@@ -47,4 +63,5 @@ namespace Payment
             return true;
         }
     }
+
 }

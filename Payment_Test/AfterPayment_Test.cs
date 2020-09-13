@@ -15,12 +15,13 @@ namespace Payment_Test
             Assert.IsTrue(isSuccess);
         }
 
+
         [TestMethod]
         public void AfterPaymentForPhysicalProducts_Test()
         {
             string physical = "Physical";
-            AfterPayment afPhysical = new AfterPayment();
-            string actualReturnValue = afPhysical.TakeActionAfterPaymentForPhyscialProd(physical);
+            var afPhysical = new AfterPayment.PhysicalProduct();
+            var actualReturnValue = afPhysical.TakeActionAfterPayment();
             Assert.AreEqual(physical, actualReturnValue);
         }
 
@@ -28,17 +29,17 @@ namespace Payment_Test
         public void AfterPaymentForBook_Test()
         {
             string book = "Book";
-            AfterPayment afPhysical = new AfterPayment();
-            string actualReturnValue = afPhysical.TakeActionAfterPaymentForBood(book);
+            var aBook = new AfterPayment.Books();
+            string actualReturnValue = aBook.TakeActionAfterPayment();
             Assert.AreEqual(book, actualReturnValue);
         }
 
         [TestMethod]
         public void AfterPaymentForMembership_Test()
         {
-            string membership = "Member";
-            AfterPayment afPhysical = new AfterPayment();
-            string actualReturnValue = afPhysical.TakeActionAfterPaymentForMembership(membership);
+            string membership = "Activate Membership";
+            var aMembership= new AfterPayment.Membership();
+            string actualReturnValue = aMembership.TakeActionAfterPayment();
             Assert.AreEqual(membership, actualReturnValue);
         }
 
