@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Payment
 {
-    class AfterPayment
+   public class AfterPayment
     {
         public static void Main(string[] args)
         {
             Console.WriteLine("Check in Test from VS");
             Console.ReadLine();
         }    
+
+        public bool TakeAction()
+        {
+            return true;
+        }
     }
 }

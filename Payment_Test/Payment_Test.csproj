@@ -53,6 +53,12 @@
     <Compile Include="AfterPayment_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Payment.csproj">
+      <Project>{4c948a45-d9cb-411f-97e4-103b43a7a6c2}</Project>
+      <Name>Payment</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

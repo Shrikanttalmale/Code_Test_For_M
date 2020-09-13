@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Payment;
 
 namespace Payment_Test
 {
@@ -7,8 +8,11 @@ namespace Payment_Test
     public class AfterPayment_Test
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ActionsAfterPayment()
         {
+            var action = new AfterPayment();
+            bool isSuccess =  action.TakeAction();
+            Assert.IsTrue(isSuccess);
         }
     }
 }
