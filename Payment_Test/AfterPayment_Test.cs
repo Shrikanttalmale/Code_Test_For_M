@@ -11,8 +11,19 @@ namespace Payment_Test
         public void ActionsAfterPayment()
         {
             var action = new AfterPayment();
-            bool isSuccess =  action.TakeAction();
+            bool isSuccess = action.TakeAction();
             Assert.IsTrue(isSuccess);
         }
+
+        [TestMethod]
+        public void AfterPaymentForPhysicalProducts_Test()
+        {
+            string physical = "Physical";
+            AfterPayment afPhysical = new AfterPayment();
+            string actualReturnValue = afPhysical.TakeActionAfterPayment("Physical");
+            Assert.AreEqual(physical, actualReturnValue);
+        }
+            
     }
+
 }

@@ -10,9 +10,23 @@ namespace Payment
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Check in Test from VS");
-            Console.ReadLine();
+           if(args.Length==0)
+            {
+                Console.WriteLine("Please enter the payment type");
+                Console.ReadLine();
+            }
+           else
+            {
+                AfterPayment af = new AfterPayment();
+                string isActionDone = af.TakeActionAfterPayment(args[0].ToString());
+            }
         }    
+
+        public string TakeActionAfterPayment(string paymentType)
+        {
+            ///Code to generate a packaging slip for shippins goes here
+            return "Physical";
+        }
 
         public bool TakeAction()
         {
