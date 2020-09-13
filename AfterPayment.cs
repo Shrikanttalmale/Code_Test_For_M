@@ -18,15 +18,29 @@ namespace Payment
            else
             {
                 AfterPayment af = new AfterPayment();
-                string isActionDone = af.TakeActionAfterPayment(args[0].ToString());
+                string isActionDone = af.TakeActionAfterPaymentForPhyscialProd(args[0].ToString());
             }
         }    
 
-        public string TakeActionAfterPayment(string paymentType)
+        public string TakeActionAfterPaymentForPhyscialProd(string paymentType)
         {
             ///Code to generate a packaging slip for shippins goes here
             return "Physical";
         }
+
+        public string TakeActionAfterPaymentForBood(string paymentType)
+        {
+            ///Create duplicate packing slip for royality department
+            return "Book";
+        }
+
+        public string TakeActionAfterPaymentForMembership(string paymentType)
+        {
+            ///Activate membership code goes here
+            return "Member";
+        }
+
+
 
         public bool TakeAction()
         {
